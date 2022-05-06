@@ -16453,6 +16453,8 @@ op_db: List[OpInfo] = [
                          dtypes=[torch.bool]),
             # Expected failure: torch.jiterator_unary is not a valid op
             DecorateInfo(unittest.expectedFailure, 'TestJit', 'test_variant_consistency_jit'),
+            # Skip Nvfuser
+            DecorateInfo(unittest.skip('Skipped!'), 'TestCudaFuserOpInfo', 'test_nvfuser_correctness'),
         )
     ),
     BinaryUfuncInfo(
@@ -16477,6 +16479,8 @@ op_db: List[OpInfo] = [
             DecorateInfo(unittest.skip("skip"), 'TestCompositeCompliance', 'test_operator'),
             # Expected failure: torch.jiterator_binary is not a valid op
             DecorateInfo(unittest.expectedFailure, 'TestJit', 'test_variant_consistency_jit'),
+            # Skip Nvfuser
+            DecorateInfo(unittest.skip('Skipped!'), 'TestCudaFuserOpInfo', 'test_nvfuser_correctness'),
         )
     ),
     OpInfo(
@@ -16500,6 +16504,8 @@ op_db: List[OpInfo] = [
             DecorateInfo(unittest.skip("skip"), 'TestCompositeCompliance', 'test_operator'),
             # Expected failure: torch.jiterator_4inputs_with_extra_args is not a valid op
             DecorateInfo(unittest.expectedFailure, 'TestJit', 'test_variant_consistency_jit'),
+            # Skip Nvfuser
+            DecorateInfo(unittest.skip('Skipped!'), 'TestCudaFuserOpInfo', 'test_nvfuser_correctness'),
         )
     ),
     # `torch.norm` has multiple code paths depending on the value of `p`.
